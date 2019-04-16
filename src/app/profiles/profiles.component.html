@@ -29,11 +29,6 @@
 		                                 
 		                                </div>
 		                                <div class="el-card-content">
-
-		                                	<div class="row text-center">
-		                                		<button class="btn btn-primary btn-sm">View Profile</button>
-		                                	</div>
-
 		                                	<h3 class="box-title text-center">{{person.first_name | uppercase}} {{person.last_name | uppercase}}</h3>
 			                                <div class="">
 			                                	<small>Gender: {{person.gender || '-'}}</small><br/>
@@ -41,6 +36,11 @@
 			                                    <small>Age: {{person.age || '-'}}</small>
 			                                </div>
 		                                    <br/> 
+
+		                                    <div class="col-12 text-center">
+		                                		<button class="btn btn-primary btn-sm">View Profile</button>
+		                                	</div>
+		                                	
 		                                </div>
 		                            </div>
 		                        </div>

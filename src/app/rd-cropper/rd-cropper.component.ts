@@ -20,7 +20,7 @@ export class RdCropperComponent implements OnInit {
  	imageChangedEvent: any = '';
     croppedImage: any = '';
     imageBase64:any
-
+    cropped : any
     defaultImage: string
     
     constructor() {
@@ -37,7 +37,13 @@ export class RdCropperComponent implements OnInit {
         this.imageChangedEvent = event;
     }
     imageCropped(event: ImageCroppedEvent) {
-        this.croppedImage = event.base64;
+
+    	if(event.hasOwnProperty("base64")) {
+			this.croppedImage = event.base64;
+		}
+
+
+        
         this.newCapture = true
         console.log("test")
     }
@@ -88,10 +94,10 @@ export class RdCropperComponent implements OnInit {
 
 	cropImage() {
 		this.newCapture = true
-		var cropped = this.imageCropper.crop("base64")
+		this.cropped = this.imageCropper.crop("base64")
 
-		if(cropped.hasOwnProperty("base64")) {
-			this.croppedImage = cropped.base64
+		if(this.cropped.base64) {
+			this.croppedImage = this.cropped.base64
 		}
 		this.imageBase64 = ""
 		this.imageChangedEvent=""
