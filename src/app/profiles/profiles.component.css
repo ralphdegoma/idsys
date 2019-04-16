@@ -1,0 +1,33 @@
+.color-table.purple-table thead th {
+    background-color: #7460ee;
+    color: #ffffff;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+	border-bottom: none !important;
+}
+
+table.dataTable.no-footer {
+	border-bottom: none !important;
+}
+
+.topbar {
+	background: linear-gradient(to right, #533fd0 0%, #9988ff 100%) !important;
+}
+
+.el-element-overlay .el-card-item .el-card-content {
+    text-align: left;
+    padding: 15px;
+}
+
+.el-element-overlay .el-card-item .el-overlay-1 {
+	height: 150px !important;
+}
+
+.el-element-overlay .el-card-item{
+	padding-bottom: 0px;
+}
+
+.el-element-overlay[_ngcontent-vnr-c3] .el-card-item[_ngcontent-vnr-c3] .el-card-content[_ngcontent-vnr-c3] {
+    background: #eaeaea;
+ }

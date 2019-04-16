@@ -3,15 +3,15 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError  } from 'rxjs';
 import { map , catchError } from 'rxjs/operators';
 import { AlertService } from './alert.service';
-
 import { User } from '../_models';
+import { Settings}  from '../settings';   
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
     private server_url: string
-    
+    settings = Settings
 
     constructor(private http: HttpClient, private alertService: AlertService) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -31,7 +31,7 @@ export class AuthenticationService {
       } else {
         // The backend returned an unsuccessful response code.
         // The response body may contain clues as to what went wrong,
-        alert(error.error);
+        console.log(error);
       }
 
       return Observable.throw(error);
@@ -40,7 +40,7 @@ export class AuthenticationService {
 
 
     login(email: string, password: string) {
-        return this.http.post<any>(this.server_url+`/api/login`, { email, password })
+        return this.http.post<any>(this.settings.server_url+`/api/login`, { email, password })
             .pipe(
                 map((user: any) => {
                     if (user && user.hasOwnProperty('token') && user.token != "") {

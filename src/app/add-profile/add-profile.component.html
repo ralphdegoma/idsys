@@ -1,0 +1,121 @@
+
+
+
+
+<div class="page-wrapper">
+	<div class="container-fluid">
+		<app-breadcrumbs breadTitle="Add Profile"></app-breadcrumbs>
+		<app-alert></app-alert>
+
+		<div class="row">
+			<div class="col-12">
+                <div class="card">
+                	
+                    <div class="card-block">
+                    	<div class="col-12">
+
+                    		<button type="button" (click)="saveProfile()" class="btn btn-primary pull-right mr-1 "><i class="fa fa-user"></i> Save Profile</button>
+
+                    		<button type="button" routerLink="/profiles" class="btn btn-info pull-right mr-1 "><i class="fa fa-back"></i> Back</button>
+
+                    	</div>
+
+                        <h4 class="card-title">Add New Profile Form</h4>
+                        <h6 class="card-subtitle">Please fill up the required fields.</h6>
+
+                        <div class="row form-material">
+                        	<div class="col-5">
+		                		<div class="text-center" >
+			                        <app-rd-cropper></app-rd-cropper>
+			                    </div>
+		                	</div>
+
+		                	<div class="col-7">
+                        		<div class="row p-t-20 m-t-40">
+	                        		<div class="col-12">
+			                            <div class="form-group">
+			                                <label>First Name</label>
+			                                <input [(ngModel)]="formData.first_name" name="first_name"  type="text" class="form-control form-control-line" value=""> 
+			                            </div>
+			                        </div>
+			                        <div class="col-12">
+			                            <div class="form-group">
+			                                <label>Last Name</label>
+			                                <input  [(ngModel)]="formData.last_name" name="last_name"  type="text" class="form-control form-control-line" value=""> 
+			                            </div>
+			                        </div>
+
+			                        <div class="col-12">
+			                            <div class="form-group">
+			                                <label>Age</label>
+			                                <input [(ngModel)]="formData.age" name="age" type="text" class="form-control form-control-line" value=""> 
+			                            </div>
+			                        </div>
+		                        </div>
+                        	</div>
+	                    </div>
+
+
+                        <form class="form-body m-t-10 form-material">
+                        	
+
+	                        <div class="row m-t-40">
+                        		<div class="col-6">
+		                            
+
+		                            <div class="form-group">
+		                                <label>Gender</label>
+		                                <select  [(ngModel)]="formData.gender" name="gender" class="form-control custom-select">
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+		                            </div>
+		                        </div>
+		                        <div class="col-6">
+		                            <div class="form-group">
+		                                <label>Birth Date</label>
+		                                <input [(ngModel)]="formData.birth_date" name="birth_date" type="text" class="form-control form-control-line" value=""> 
+		                            </div>
+		                        </div>
+	                        </div>
+
+
+	                        <div class="row">
+                        		<div class="col-6">
+		                            <div class="form-group">
+		                                <label>Civil Status</label>
+		                                <select [(ngModel)]="formData.civil_status" name="civil_status" class="form-control custom-select">
+                                            <option value="Single">Single</option>
+                                            <option value="Maried">Maried</option>
+                                        </select>
+		                            </div>
+		                        </div>
+
+		                        <div class="col-6">
+		                            <div class="form-group">
+		                                <label>Blood Type</label>
+		                                <input [(ngModel)]="formData.blood_type" name="blood_type" type="text" class="form-control form-control-line" value=""> 
+		                            </div>
+		                        </div>
+		                        
+	                        </div>
+
+
+	                        <div class="row">
+	                        	<div class="col-6 draw">
+	                        		<label>Signature</label>
+	                        		<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+	                        		<button (click)="clearCanvas()" class="btn btn-sm btn-primary">Clear</button>
+	                        	</div>
+	                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+
+
+	</div>
+</div>
+
+

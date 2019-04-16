@@ -1,0 +1,39 @@
+<div class="m-t-30 thumbnail-creator-wrapper"> 
+	<div class="thumbnail-creator" >
+
+		<image-cropper
+			[imageChangedEvent]="imageChangedEvent"
+			style="position:absolute;width: 300px;height: 245px"
+		    [imageBase64]="imageBase64"
+		    [maintainAspectRatio]="true"
+		    [aspectRatio]="4 / 3"
+		    format="png"
+		    autoCrop="false"
+		    (imageCropped)="imageCropped($event)"
+		    (imageLoaded)="imageLoaded()"
+		    (cropperReady)="cropperReady()"
+		    (loadImageFailed)="loadImageFailed()"
+		></image-cropper>
+
+
+		<!-- <img [hidden]="!newCapture"   width="300" height="245" src="" id="img_from_canvas"> -->
+    	<img  [src]="croppedImage"  [hidden]="onCamera || cropping" src="../assets/images/users/thumb.png" class="" height="245" width="300">
+    	
+    	<canvas style="display: none" id="video_canvas" width="300" height="245"></canvas>
+
+    	<video  [hidden]="!onCamera || newCapture" id="video" style="height: 245px;width: 300px" ></video>
+
+
+    </div>
+    <div class="row text-center justify-content-md-center m-t-20">
+        <div class="col-4" [hidden]="onCamera || cropping"> <button (click)="runCamera()" class="btn btn-sm btn-primary"><i class="fa fa-camera"></i> Camera</button></div>
+
+        <div class="col-4" [hidden]="onCamera || !cropping" > <button (click)="cropImage()" class="btn btn-sm btn-primary"><i class="fa fa-camera"></i> Crop</button></div>
+
+        <div class="col-4" [hidden]="!onCamera || newCapture"> <button  (click)="captureCamera()" class="btn btn-sm btn-info"><i class="fa fa-images"></i> Take a photo</button></div>
+
+        <input type="file" style="display: none" (change)="fileChangeEvent($event)"  class="hidden camera_src" accept="image/*;capture=camera">
+
+        <div class="col-4" > <button (click)="openFileBrowser($event)" class="btn btn-sm btn-info"><i class="fa fa-upload"></i> Upload</button></div>
+    </div>
+</div>
