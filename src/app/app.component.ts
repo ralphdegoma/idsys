@@ -15,7 +15,7 @@ export class AppComponent {
 
 	constructor(
 	    private router: Router,
-	    private authenticationService: AuthenticationService
+	    public authenticationService: AuthenticationService
 	) {
 
 		if (!this.authenticationService.currentUserValue) { 

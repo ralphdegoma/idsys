@@ -35,7 +35,7 @@ export class AddProfileComponent implements OnInit {
 
 	formData: any = {};
 
-	private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+	public signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
 		'minWidth': 5,
 		'canvasWidth': 500,
 		'canvasHeight': 300

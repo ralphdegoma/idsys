@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -24,7 +23,6 @@ import { AlertComponent } from './alert/alert.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
     SidebarComponent,
     NavbarComponent,
     ProfilesComponent,
